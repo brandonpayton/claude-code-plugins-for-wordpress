@@ -47,7 +47,7 @@ Generate Blueprint JSON files that configure WordPress Playground instances.
   "step": "installTheme",
   "themeData": {
     "resource": "wordpress.org/themes",
-    "slug": "flavor"
+    "slug": "storefront"
   }
 }
 ```
@@ -159,7 +159,7 @@ Site with plugin, custom mu-plugin, and configuration:
       "step": "installTheme",
       "themeData": {
         "resource": "wordpress.org/themes",
-        "slug": "flavor"
+        "slug": "storefront"
       }
     },
     {
