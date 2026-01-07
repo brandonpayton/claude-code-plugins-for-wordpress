@@ -17,6 +17,8 @@ From your plugin directory:
 npx @wp-playground/cli server --auto-mount --login
 ```
 
+To load WordPress without automatically logging in, omit the `--login` param.
+
 ## Server Details
 
 | Property | Value |
@@ -36,8 +38,14 @@ npx @wp-playground/cli server --auto-mount --login
 
 ## Flags
 
+Some key command line flags are:
+
 | Flag | Purpose |
 |------|---------|
 | `--auto-mount` | Mount current directory as plugin/theme |
 | `--login` | Auto-login to wp-admin |
 | `--port <port>` | Use custom port (default: 9400) |
+| `--blueprint <blueprint-json-path>` | Optional Blueprint to run |
+
+To see the full list, ask for help from the Playground CLI `server` command:
+`npx @wp-playground/cli server --help`
