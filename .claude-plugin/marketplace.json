@@ -1,0 +1,16 @@
+{
+  "name": "wordpress-playground-skills",
+  "owner": {
+    "name": "Brandon Payton"
+  },
+  "plugins": [
+    {
+      "name": "wordpress-playground-skills",
+      "description": "Skills for testing WordPress plugins, themes, and code using WordPress Playground",
+      "source": {
+        "source": "relative",
+        "path": "."
+      }
+    }
+  ]
+}

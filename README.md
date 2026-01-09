@@ -1,28 +1,38 @@
-# Claude Code Skills
+# WordPress Playground Skills
 
-A collection of skills for Claude Code.
+A Claude Code plugin with skills for testing WordPress plugins, themes, and code using WordPress Playground.
 
-## Structure
+## Installation
 
+```bash
+# Add the marketplace
+/plugin marketplace add https://github.com/brandonpayton/claude-code-wordpress-playground-plugin.git
+
+# Install the plugin
+/plugin install wordpress-playground-skills@wordpress-playground-skills
 ```
-skills/
-├── skill-name.md
-└── ...
-```
 
-## Usage
+## Skills Included
 
-Skills can be invoked in Claude Code using `/skill-name` or referenced in other skills.
+### wordpress-playground
 
-## Creating a Skill
+Run a local WordPress instance with your plugin, theme, wp-content directory, or whole WordPress directory mounted for testing.
 
-Each skill is a markdown file with frontmatter:
+Invoke with `/wordpress-playground` or it will be automatically suggested when testing WordPress code.
 
-```markdown
----
-name: skill-name
-description: Brief description of when to use this skill
----
+### wordpress-blueprint
 
-Skill content here...
+Generate Blueprint JSON files that configure WordPress Playground instances.
+
+Invoke with `/wordpress-blueprint` or it will be automatically suggested when creating WordPress demo configurations.
+
+## Requirements
+
+- Node.js 20.18+
+- Claude Code with plugin support
+
+## Updating
+
+```bash
+/plugin marketplace update
 ```

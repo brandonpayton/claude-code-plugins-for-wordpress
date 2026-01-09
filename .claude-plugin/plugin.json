@@ -1,0 +1,9 @@
+{
+  "name": "wordpress-playground-skills",
+  "version": "0.0.1",
+  "description": "Skills for testing WordPress plugins, themes, and code using WordPress Playground",
+  "author": {
+    "name": "Brandon Payton"
+  },
+  "repository": "https://github.com/brandonpayton/claude-code-wordpress-playground-plugin"
+}
