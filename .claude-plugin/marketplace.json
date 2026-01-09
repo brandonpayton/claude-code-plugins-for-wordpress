@@ -1,4 +1,5 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "wordpress-playground-skills",
   "owner": {
     "name": "Brandon Payton"
@@ -7,10 +8,7 @@
     {
       "name": "wordpress-playground-skills",
       "description": "Skills for testing WordPress plugins, themes, and code using WordPress Playground",
-      "source": {
-        "source": "relative",
-        "path": "."
-      }
+      "source": "./"
     }
   ]
 }
