@@ -20,9 +20,9 @@ Skills for testing WordPress plugins, themes, and core code using WordPress Play
 
 #### Skills
 
-**wordpress-playground:server** - Run a local WordPress instance with your plugin, theme, wp-content directory, or WordPress directory mounted for testing.
+**wordpress-playground-server** - Run a local WordPress instance with your plugin, theme, wp-content directory, or WordPress directory mounted for testing.
 
-Invoke with `/wordpress-playground:server` or it will be automatically suggested when testing WordPress code.
+Invoke with `/wordpress-playground-server` or it will be automatically suggested when testing WordPress code.
 
 ## Repository Structure
 
