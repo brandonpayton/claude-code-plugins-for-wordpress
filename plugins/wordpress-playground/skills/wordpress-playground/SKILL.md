@@ -54,7 +54,7 @@ The principle: detection looks for WordPress-standard markers.
 ## Workflow
 
 1. Start server with `run_in_background: true` (server runs continuously; blocking call would hang)
-2. Read task output until you see: `WordPress is running on http://127.0.0.1:<port>`
+2. Read task output frequently until you see: `WordPress is running on http://127.0.0.1:<port>`
    **STOP.** Do not call any Playwright tool until this message appears.
 3. Navigate and interact via Playwright MCP tools using the URL from step 2
 4. Kill server with `KillShell` when done
