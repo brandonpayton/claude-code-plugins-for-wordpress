@@ -1,30 +1,45 @@
-# WordPress Playground Skills
+# WordPress Plugins for Claude Code
 
-A Claude Code plugin with skills for testing WordPress plugins, themes, and code using WordPress Playground.
+A marketplace of Claude Code plugins for WordPress development.
 
 ## Installation
 
 ```bash
 # Add the marketplace
-/plugin marketplace add https://github.com/brandonpayton/claude-code-wordpress-playground-plugin.git
+/plugin marketplace add brandonpayton/claude-code-plugins-for-wordpress
 
-# Install the plugin
-/plugin install wordpress-playground-skills@wordpress-playground-skills
+# Install the wordpress-playground plugin
+/plugin install wordpress-playground@brandonpayton/claude-code-plugins-for-wordpress
 ```
 
-## Skills Included
+## Plugins
 
 ### wordpress-playground
 
-Run a local WordPress instance with your plugin, theme, wp-content directory, or whole WordPress directory mounted for testing.
+Skills for testing WordPress plugins, themes, and core code using WordPress Playground.
 
-Invoke with `/wordpress-playground` or it will be automatically suggested when testing WordPress code.
+#### Skills
 
-### wordpress-blueprint
+**wordpress-playground:server** - Run a local WordPress instance with your plugin, theme, wp-content directory, or WordPress directory mounted for testing.
 
-Generate Blueprint JSON files that configure WordPress Playground instances.
+Invoke with `/wordpress-playground:server` or it will be automatically suggested when testing WordPress code.
 
-Invoke with `/wordpress-blueprint` or it will be automatically suggested when creating WordPress demo configurations.
+## Repository Structure
+
+```
+.claude-plugin/
+  marketplace.json      # Marketplace definition
+plugins/
+  wordpress-playground/ # WordPress Playground plugin
+    .claude-plugin/
+      plugin.json       # Plugin metadata
+    skills/
+      server/           # Server skill
+        SKILL.md
+        scripts/
+          start-server.sh
+          stop-server.sh
+```
 
 ## Requirements
 
