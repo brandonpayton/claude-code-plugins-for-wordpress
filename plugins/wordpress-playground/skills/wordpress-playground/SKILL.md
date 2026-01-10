@@ -25,8 +25,18 @@ Run a local WordPress instance with your plugin, theme, wp-content directory, or
 
 ## Quick Start
 
+Use the helper scripts in `scripts/` relative to this skill's base directory:
+
 ```bash
-npx @wp-playground/cli server --login --auto-mount /path/to/plugin
+# Start server and get PID + URL
+./scripts/start-server.sh --login --auto-mount /path/to/plugin
+# Output on success:
+#   pid:12345
+#   url:http://127.0.0.1:9400
+
+# Stop server by PID
+./scripts/stop-server.sh 12345
+# Output: stopped:12345
 ```
 
 | Flag | Purpose |
@@ -52,6 +62,24 @@ Run `npx @wp-playground/cli server --help` for all options.
 The principle: detection looks for WordPress-standard markers.
 
 ## Workflow
+
+### Using Helper Scripts (Recommended)
+
+1. Start server with `start-server.sh` - it waits for ready and returns PID + URL
+2. Parse the output to get the URL
+3. Navigate and interact via Playwright MCP tools
+4. Stop server with `stop-server.sh <pid>` when done
+
+```bash
+# From skill base directory
+result=$(./scripts/start-server.sh --login --auto-mount /path/to/plugin)
+pid=$(echo "$result" | grep '^pid:' | cut -d: -f2)
+url=$(echo "$result" | grep '^url:' | cut -d: -f2)
+# Use $url for Playwright, then:
+./scripts/stop-server.sh "$pid"
+```
+
+### Using npx Directly
 
 1. Start server with `run_in_background: true` (server runs continuously; blocking call would hang)
 2. Read task output frequently until you see: `WordPress is running on http://127.0.0.1:<port>`
@@ -89,7 +117,7 @@ npx @wp-playground/cli server --auto-mount /path/to/plugin
 
 | Error | Action |
 |-------|--------|
-| `EADDRINUSE` / port in use | Retry with `--port 9401` |
+| `EADDRINUSE` / port in use | Use `--port <port>` to choose a subsequent port that is not in use |
 | No ready signal in 60s | Read task output for errors, retry once |
 
 **Configuration errors** (verify setup):
