@@ -1,12 +1,16 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "wordpress-playground",
+  "name": "brandonpayton-wordpress",
   "owner": {
     "name": "Brandon Payton"
   },
+  "metadata": {
+    "description": "Brandon Paytons's WordPress-related plugins for Claude Code",
+    "version": "0.0.1"
+  },
   "plugins": [
     {
-      "name": "wordpress-playground-skills",
+      "name": "wordpress-playground",
       "description": "Skills for testing WordPress plugins, themes, and code using WordPress Playground",
       "source": "./plugins/wordpress-playground"
     }
