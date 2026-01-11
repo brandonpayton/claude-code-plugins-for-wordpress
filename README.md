@@ -41,6 +41,8 @@ plugins/
           stop-server.sh
 ```
 
+NOTE: Initially, the wordpress-playground-server skill directly invoked `npx @wp-playground/cli` and waited for the "WordPress is running" message to know that Playground had started. Unfortunately, starting Playground this way required using Claude to examine Playground CLI output and was really slow, sometimes taking 1 minute to start up. By switching to start/stop scripts, we moved all the "has Playground finished starting?" to bash and stopped involving Claude in that process. With the start script, Playground startup takes about 8 seconds on my system.
+
 ## Requirements
 
 - Node.js 20.18+
