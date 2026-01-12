@@ -14,7 +14,9 @@ OUTPUT_FILE=$(mktemp)
 trap "rm -f '$OUTPUT_FILE'" EXIT
 
 # Start the server in background
-npx @wp-playground/cli server "$@" > "$OUTPUT_FILE" 2>&1 &
+# Use the experimental multi-worker support by default
+# because possible data corruption is not a concern for ephemeral playgrounds.
+npx @wp-playground/cli server --experimental-multi-worker "$@" > "$OUTPUT_FILE" 2>&1 &
 SERVER_PID=$!
 
 # Wait for ready message or error
