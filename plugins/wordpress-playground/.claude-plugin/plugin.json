@@ -1,6 +1,6 @@
 {
   "name": "wordpress-playground",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Skills for testing WordPress plugins, themes, and core code using WordPress Playground",
   "author": {
     "name": "Brandon Payton"
