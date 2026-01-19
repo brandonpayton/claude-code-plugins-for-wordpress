@@ -1,4 +1,4 @@
-# WordPress Plugins for Claude Code
+# Claude Code Plugins for WordPress
 
 A marketplace of Claude Code plugins for WordPress development.
 
