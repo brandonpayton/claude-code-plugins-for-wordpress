@@ -3,19 +3,8 @@ name: wordpress-playground-server
 description: Test code with WordPress by starting a WordPress server. Use when testing changes to a WordPress plugin, a WordPress theme, WordPress source code, verifying WordPress behavior, or needing a running WordPress instance to validate work
 user-invocable: true
 allowed-tools:
-  - Bash
-  - KillShell
-  - mcp__playwright__browser_navigate
-  - mcp__playwright__browser_snapshot
-  - mcp__playwright__browser_click
-  - mcp__playwright__browser_type
-  - mcp__playwright__browser_fill_form
-  - mcp__playwright__browser_hover
-  - mcp__playwright__browser_select_option
-  - mcp__playwright__browser_press_key
-  - mcp__playwright__browser_wait_for
-  - mcp__playwright__browser_take_screenshot
-  - mcp__playwright__browser_close
+  - Bash(./scripts/start-server.sh)
+  - Bash(./scripts/stop-server.sh)
 ---
 
 # WordPress Playground
@@ -80,35 +69,27 @@ url=$(echo "$result" | grep '^url:' | cut -d: -f2)
 ./scripts/stop-server.sh "$pid"
 ```
 
-### Using npx Directly
-
-1. Start server with `run_in_background: true` (server runs continuously; blocking call would hang)
-2. Read task output frequently until you see: `WordPress is running on http://127.0.0.1:<port>`
-   **STOP.** Do not call any Playwright tool until this message appears.
-3. Navigate and interact via Playwright MCP tools using the URL from step 2
-4. Kill server with `KillShell` when done
+### When tests require logging into WordPress, enable auto-login by including the --login flag
 
 <example type="CORRECT">
-Bash(run_in_background=true): npx @wp-playground/cli server --login --auto-mount /path
-TaskOutput(block=true): wait for "WordPress is running on http://127.0.0.1:9400"
-browser_navigate: http://127.0.0.1:9400/wp-admin/
-</example>
-
-<example type="INCORRECT">
-Bash(run_in_background=true): npx @wp-playground/cli server --login --auto-mount /path
-browser_navigate: http://127.0.0.1:9400/wp-admin/
-# Connection refused—server not ready yet
-</example>
-
-## Admin Testing
-
-<example type="CORRECT">
-npx @wp-playground/cli server --login --auto-mount /path/to/plugin
+./scripts/start-server.sh --login --auto-mount /path/to/plugin
 # Playwright can access /wp-admin/ immediately
 </example>
 
 <example type="INCORRECT">
-npx @wp-playground/cli server --auto-mount /path/to/plugin
+./scripts/start-server.sh --auto-mount /path/to/plugin
+# Playwright blocked by login screen at /wp-admin/
+</example>
+
+### When testing WordPress while logged out, omit the --login flag so auto-login is not enabled
+
+<example type="CORRECT">
+./scripts/start-server.sh --auto-mount /path/to/plugin
+# Playwright can access /wp-admin/ immediately
+</example>
+
+<example type="INCORRECT">
+./scripts/start-server.sh --login --auto-mount /path/to/plugin
 # Playwright blocked by login screen at /wp-admin/
 </example>
 

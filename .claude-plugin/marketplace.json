@@ -2,11 +2,11 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "brandonpayton-wordpress",
   "owner": {
-    "name": "Brandon Payton"
+    "name": "WordPress Community"
   },
   "metadata": {
-    "description": "Brandon Paytons's WordPress-related plugins for Claude Code",
-    "version": "0.0.3"
+    "description": "WordPress-related plugins for Claude Code",
+    "version": "0.0.4"
   },
   "plugins": [
     {
