@@ -1,7 +1,6 @@
 ---
 name: wordpress-playground-server
 description: Test code with WordPress by starting a WordPress server. Use when testing changes to a WordPress plugin, a WordPress theme, WordPress source code, verifying WordPress behavior, or needing a running WordPress instance to validate work
-user-invocable: true
 allowed-tools:
   - Bash
   - KillShell
