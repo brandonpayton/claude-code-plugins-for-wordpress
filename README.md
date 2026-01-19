@@ -6,10 +6,10 @@ A marketplace of Claude Code plugins for WordPress development.
 
 ```bash
 # Add the marketplace
-/plugin marketplace add brandonpayton/claude-code-plugins-for-wordpress
+/plugin marketplace add WordPress/claude-code-plugins
 
 # Install the wordpress-playground plugin
-/plugin install wordpress-playground@brandonpayton/claude-code-plugins-for-wordpress
+/plugin install wordpress-playground@WordPress/claude-code-plugins
 ```
 
 ## Plugins
